@@ -1,5 +1,6 @@
 package com.sameer.Mini.Project.Controller;
 
+import com.sameer.Mini.Project.Data.LoginDto;
 import com.sameer.Mini.Project.Data.UserTable;
 import com.sameer.Mini.Project.Service.UserDefination;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,11 @@ public class UserController {
     }
 
 
+    @PostMapping("/login")
+    public String login(@RequestBody LoginDto loginDto){
+        return userDefination.login(loginDto);
+    }
+
     @PostMapping("/addUser")
     public UserTable createUser(@RequestBody UserTable body){
         userDefination.createUser(body);
@@ -35,7 +41,7 @@ public class UserController {
     }
 
     @GetMapping("/getUser/{id}")
-    public Optional<UserTable> getUaser(@PathVariable Long id){
+    public Optional<UserTable> getUser(@PathVariable String id){
         return userDefination.getUserById(id);
     }
 

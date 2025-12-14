@@ -5,7 +5,6 @@ import com.sameer.Mini.Project.Data.TransactionTable;
 import com.sameer.Mini.Project.Data.UserTable;
 import com.sameer.Mini.Project.Repository.ServiceRepo;
 import com.sameer.Mini.Project.Repository.UserRepo;
-import com.sameer.Mini.Project.utility.Operation;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,17 +16,18 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional
+
 public class OperationService {
 
     private final UserRepo userRepo;
     private final ServiceRepo serviceRepo;
 
 
-    public List<TransactionTable> getAllTransactionById(Long id) {
+    public List<TransactionTable> getAllTransactionById(String id) {
         return serviceRepo.findAllByuserId(id);
     }
 
-    public String withdraw(Long userId, Integer amount) {
+    public String withdraw(String userId, Integer amount) {
         Optional<UserTable> user=userRepo.findById(userId);
         if(user.isEmpty()){
             return "NO USER FOUND OF ID "+userId;
@@ -54,7 +54,7 @@ public class OperationService {
 
     }
 
-    public String diposit(Long userId, Integer amount) {
+    public String diposit(String userId, Integer amount) {
         Optional<UserTable> user=userRepo.findById(userId);
         if(user.isEmpty()){
             return "NO USER FOUND OF ID "+userId;

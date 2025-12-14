@@ -1,7 +1,7 @@
 package com.sameer.Mini.Project.Data;
 
 
-import com.sameer.Mini.Project.utility.Operation;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -26,7 +26,7 @@ public class TransactionTable {
     @CreationTimestamp
     private LocalDateTime doneOn;
 
-    private Long userId;
+    private String userId;
     private Integer currentBalance;
     private String Mobileno;
     private String operation;

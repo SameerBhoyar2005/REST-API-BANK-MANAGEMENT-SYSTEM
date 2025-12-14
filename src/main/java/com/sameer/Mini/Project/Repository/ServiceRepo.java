@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ServiceRepo extends JpaRepository<TransactionTable,Long> {
 
-    List<TransactionTable> findAllByuserId(Long id);
+    List<TransactionTable> findAllByuserId(String id);
 }

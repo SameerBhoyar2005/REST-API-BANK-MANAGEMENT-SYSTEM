@@ -15,8 +15,7 @@ import lombok.Setter;
 @Setter
 public class UserTable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private Integer money;
     private String name;
     private String mob_no;

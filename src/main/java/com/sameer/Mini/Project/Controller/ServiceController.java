@@ -20,17 +20,17 @@ public class ServiceController {
 
 
     @GetMapping("/alltransactions/{id}")
-    public List<TransactionTable> getAllTrasactionById(@PathVariable Long id){
+    public List<TransactionTable> getAllTrasactionById(@PathVariable String id){
         return operationService.getAllTransactionById(id);
     }
 
     @GetMapping("/withdraw/{id}/{amount}")
-    public String withdraw(@PathVariable Long id, @PathVariable Integer amount){
+    public String withdraw(@PathVariable String id, @PathVariable Integer amount){
         return operationService.withdraw(id,amount);
     }
 
     @GetMapping("/diposit/{id}/{amount}")
-    public String diposit(@PathVariable Long id, @PathVariable Integer amount){
+    public String diposit(@PathVariable String id, @PathVariable Integer amount){
         return operationService.diposit(id,amount);
     }
 
