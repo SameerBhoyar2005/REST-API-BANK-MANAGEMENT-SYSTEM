@@ -40,7 +40,7 @@ public class JwtFilter extends OncePerRequestFilter {
             return;
         }
 
-        // ✅ 2. Read Authorization header safely
+
         String authHeader = request.getHeader("Authorization");
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
@@ -54,12 +54,12 @@ public class JwtFilter extends OncePerRequestFilter {
         try {
             username = jwtService.extractUsername(token);
         } catch (Exception e) {
-            // ❌ Invalid token → just continue filter chain
+
             filterChain.doFilter(request, response);
             return;
         }
 
-        // ✅ 3. Authenticate user if not already authenticated
+
         if (username != null &&
                 SecurityContextHolder.getContext().getAuthentication() == null) {
 
